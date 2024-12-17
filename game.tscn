@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bowcur0pd4vpt"]
 
 [ext_resource type="Texture2D" uid="uid://c7v5h3cosic34" path="res://icon.svg" id="1_a0wko"]
-[ext_resource type="Script" path="res://grabber.gd" id="2_tch7n"]
+[ext_resource type="PackedScene" uid="uid://fjpcac0dkq78" path="res://grabber.tscn" id="2_qmh5h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8kdw"]
 size = Vector2(25, 516)
@@ -47,9 +47,4 @@ texture = ExtResource("1_a0wko")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Area2D2"]
 shape = SubResource("RectangleShape2D_v8kdw")
 
-[node name="Grabber" type="Node2D" parent="."]
-script = ExtResource("2_tch7n")
-
-[node name="Icon" type="Sprite2D" parent="Grabber"]
-scale = Vector2(0.111117, 0.545242)
-texture = ExtResource("1_a0wko")
+[node name="Grabber" parent="." instance=ExtResource("2_qmh5h")]

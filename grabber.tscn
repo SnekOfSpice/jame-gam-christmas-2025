@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://fjpcac0dkq78"]
+
+[ext_resource type="Script" path="res://grabber.gd" id="1_cmbh8"]
+[ext_resource type="Texture2D" uid="uid://c7v5h3cosic34" path="res://icon.svg" id="2_vw4vp"]
+
+[node name="Grabber" type="Node2D"]
+script = ExtResource("1_cmbh8")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.111117, 0.545242)
+texture = ExtResource("2_vw4vp")
+
+[node name="CaneSpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, 37)
