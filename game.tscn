@@ -9,6 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8kdw"]
 size = Vector2(25, 516)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0d1w"]
+size = Vector2(23.5, 596.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v8uo"]
 size = Vector2(613, 47)
 
@@ -58,12 +61,8 @@ position = Vector2(0.5, 9.5)
 scale = Vector2(4.88602, 0.368885)
 texture = ExtResource("1_a0wko")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Floor"]
-position = Vector2(-5.5, 7.5)
-shape = SubResource("RectangleShape2D_7v8uo")
-
-[node name="RightWall" type="StaticBody2D" parent="Container"]
-position = Vector2(883, 356)
+[node name="Area2D2" type="StaticBody2D" parent="Container"]
+position = Vector2(866, 359)
 
 [node name="Icon" type="Sprite2D" parent="Container/RightWall"]
 position = Vector2(0.5, 9.5)
@@ -72,6 +71,10 @@ texture = ExtResource("1_a0wko")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/RightWall"]
 shape = SubResource("RectangleShape2D_v8kdw")
+
+[node name="Container_Floor#CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 7.5)
+shape = SubResource("RectangleShape2D_7v8uo")
 
 [node name="Grabber" parent="." instance=ExtResource("2_qmh5h")]
 
