@@ -18,8 +18,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	self.position.x = get_global_mouse_position().x
-	
+	self.position.x = calc_horizontal_pos()
+
+func calc_horizontal_pos() -> float:
+	return min(max(get_node("../Container/LeftWall").position.x, get_global_mouse_position().x), get_node("../Container/RightWall").position.x)
 
 func spawn_cane() -> void:
 	current_cane = candy_cane_base.instantiate() 

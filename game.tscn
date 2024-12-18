@@ -39,38 +39,38 @@ script = ExtResource("1_lvs5x")
 
 [node name="Container" type="Node2D" parent="."]
 
-[node name="Area2D" type="StaticBody2D" parent="Container"]
+[node name="LeftWall" type="StaticBody2D" parent="Container"]
 position = Vector2(292.5, 356)
 
-[node name="Icon" type="Sprite2D" parent="Container/Area2D"]
+[node name="Icon" type="Sprite2D" parent="Container/LeftWall"]
 position = Vector2(0.5, 9.5)
 scale = Vector2(0.210938, 4.19531)
 texture = ExtResource("1_a0wko")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/LeftWall"]
 shape = SubResource("RectangleShape2D_v8kdw")
 
-[node name="Area2D3" type="StaticBody2D" parent="Container"]
+[node name="Floor" type="StaticBody2D" parent="Container"]
 position = Vector2(594, 631)
 
-[node name="Icon" type="Sprite2D" parent="Container/Area2D3"]
+[node name="Icon" type="Sprite2D" parent="Container/Floor"]
 position = Vector2(0.5, 9.5)
 scale = Vector2(4.88602, 0.368885)
 texture = ExtResource("1_a0wko")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Area2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Floor"]
 position = Vector2(-5.5, 7.5)
 shape = SubResource("RectangleShape2D_7v8uo")
 
-[node name="Area2D2" type="StaticBody2D" parent="Container"]
+[node name="RightWall" type="StaticBody2D" parent="Container"]
 position = Vector2(883, 356)
 
-[node name="Icon" type="Sprite2D" parent="Container/Area2D2"]
+[node name="Icon" type="Sprite2D" parent="Container/RightWall"]
 position = Vector2(0.5, 9.5)
 scale = Vector2(0.210938, 4.19531)
 texture = ExtResource("1_a0wko")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/RightWall"]
 shape = SubResource("RectangleShape2D_v8kdw")
 
 [node name="Grabber" parent="." instance=ExtResource("2_qmh5h")]
