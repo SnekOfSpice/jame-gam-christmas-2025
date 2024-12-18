@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxutjiavyvlvx"
-path="res://.godot/imported/cane_02.png-da43e199597bf1e84aa2858574968ee3.ctex"
+uid="uid://4d31u27hwcnf"
+path="res://.godot/imported/cane_00.png-2d78b1ac47ea063c52586675284db8ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cane_02.png"
-dest_files=["res://.godot/imported/cane_02.png-da43e199597bf1e84aa2858574968ee3.ctex"]
+source_file="res://sprites/cane_00.png"
+dest_files=["res://.godot/imported/cane_00.png-2d78b1ac47ea063c52586675284db8ea.ctex"]
 
 [params]
 

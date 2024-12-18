@@ -9,7 +9,6 @@ var cane_parent = $CaneSpawnPoint
 
 func _ready() -> void:
 	spawn_cane()
-	pass
 
 func _input(event: InputEvent) -> void:
 	if InputMap.action_has_event("drop", event) and event.is_pressed() and cane_ready:
@@ -21,7 +20,6 @@ func _process(delta: float) -> void:
 	self.position.x = get_global_mouse_position().x
 	
 
-
 func spawn_cane() -> void:
 	current_cane = candy_cane_base.instantiate() 
 	current_cane.get_child(0).body_entered.connect(on_cane_landed)
@@ -29,7 +27,6 @@ func spawn_cane() -> void:
 	cane_ready = true
 
 func on_cane_landed(body: Node) -> void :
-	print("hewwo")
 	if !cane_ready:
-		print("spawning")
+		current_cane.get_child(0).body_entered.disconnect(on_cane_landed)
 		call_deferred("spawn_cane")
