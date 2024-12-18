@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameManager="*res://game_manager.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [global_group]
 
 canes="group that groups all candy canes togemther"
