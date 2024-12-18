@@ -8,6 +8,7 @@ func _ready() -> void:
 	GameManager.register(self)
 
 func spawn() -> void:
+	self.rotation = rad_to_deg(randf_range(-75, 75))
 	self.freeze = true
 
 func fall() -> void:
