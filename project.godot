@@ -15,6 +15,14 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://game_manager.gd"
+
+[global_group]
+
+canes="group that groups all candy canes togemther"
+
 [input]
 
 drop={

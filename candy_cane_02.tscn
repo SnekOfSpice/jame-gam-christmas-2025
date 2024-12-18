@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cxutjiavyvlvx" path="res://sprites/cane_02.png" id="2_bwkj3"]
 
 [node name="CandyCane_02" instance=ExtResource("1_4rvr8")]
-scale = Vector2(1.7, 1.7)
 lvl = 2
 
-[node name="Sprite" parent="RigidBody2D" index="0"]
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(0.14, 0.14)
 texture = ExtResource("2_bwkj3")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+scale = Vector2(1.75, 1.75)
