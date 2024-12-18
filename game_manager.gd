@@ -2,12 +2,6 @@ extends Node
 var active_listeners = []
 var active_collisions = []
 
-@onready
-var next_levels = [load("res://candy_cane_01.tscn"),
-load("res://candy_cane_02.tscn"),
-load("res://candy_cane.tscn")]
-
-
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -47,6 +41,8 @@ func register_collision(cane_a, cane_b) -> void:
 	call_deferred("check_merge", [cane_a, cane_b])
 
 func merge(spawn_pos: Vector2, lvl: int) -> void:
-	var next_cane = next_levels[lvl].instantiate()
+	if lvl >= 4 : lvl = -1
+	var next_cane = load("res://entities/candyCanes/candy_cane_%s.tscn" % str(lvl+1)).instantiate()
+	#var next_cane = next_levels[lvl].instantiate()
 	get_tree().root.get_child(1).add_child(next_cane)
 	next_cane.global_position = spawn_pos

@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready
-var candy_cane_base = preload("res://candy_cane.tscn")
+var candy_cane_base = preload("res://entities/candyCanes/candy_cane_0.tscn")
 var current_cane
 var cane_ready := false
 @onready

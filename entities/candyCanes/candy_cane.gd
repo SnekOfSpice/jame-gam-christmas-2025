@@ -3,7 +3,6 @@ extends RigidBody2D
 @export
 var lvl := 0
 
-
 func _ready() -> void:
 	GameManager.register(self)
 
