@@ -18,9 +18,10 @@ func spawn() -> void:
 	move_allowed = true
 	self.position = Vector2(clamp(get_global_mouse_position().x, move_limits.x, move_limits.y), 37)
 
-func fall() -> void:
-	self.freeze = false
+func fall(launch_speed: float) -> void:
 	move_allowed = false
+	self.freeze = false
+	self.apply_impulse(Vector2(0, launch_speed))
 
 func _physics_process(delta: float) -> void:
 	if move_allowed: self.position.x = clamp(get_global_mouse_position().x, move_limits.x, move_limits.y)

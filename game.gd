@@ -14,18 +14,37 @@ var container := $Container
 @onready
 var next_cane_slot := $NextCaneSlot
 
+var force := 0.0
+var building_up_force := false
+
 func _ready() -> void:
 	set_background("bg1")
 	grabber.set_extents(container.get_extents())
 
 func _input(event: InputEvent) -> void:
-	if InputMap.action_has_event("drop", event) and event.is_pressed():
-		if cane_ready:
-			cane_ready = false
-			current_cane.fall()
-		if just_started:
-			just_started = false
-			spawn_cane()
+	if InputMap.action_has_event("drop", event):
+		if event.is_pressed():
+			if cane_ready:
+				building_up_force = true
+			if just_started:
+				just_started = false
+				spawn_cane()
+		if event.is_released():
+			if cane_ready:
+				launch_cane()
+
+func launch_cane():
+	building_up_force = false
+	cane_ready = false
+	print(force)
+	current_cane.fall(force)
+	$LauchPower.value = 0.0
+	force = 0.0
+
+func _process(delta):
+	if building_up_force:
+		force = clamp(force + 500 * delta, 0, 1000)
+		$LauchPower.value = force
 
 func spawn_cane() -> void:
 	current_cane = next_cane_slot.get_next_cane()

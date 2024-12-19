@@ -7,11 +7,22 @@ var active_collisions = []
 var game_node = get_tree().root.get_node("/root/Game")
 
 func register(cane: RigidBody2D) -> void:
+	maintain_active_listeners(cane)
 	active_listeners.append(cane)
 	cane.body_entered.connect(listen)
 	cane.body_exited.connect(unlisten)
-	print(print_active_listeners())
 	pass
+
+func maintain_active_listeners(new_cane) -> void:
+	var canes_to_erase = []
+	for cane in active_listeners:
+		if !is_instance_valid(cane):
+			canes_to_erase.append(cane)
+	for cane in canes_to_erase:
+		active_listeners.erase(cane)
+	if new_cane != null:
+		active_listeners.append(new_cane)
+	
 
 func print_active_listeners() -> String:
 	var str = ""
