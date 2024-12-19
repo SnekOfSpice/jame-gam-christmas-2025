@@ -3,7 +3,7 @@ extends NinePatchRect
 var next_cane
 
 func _ready():
-	pass
+	randomize_next_cane()
 	#var next_cane = load("res://entities/candyCanes/candy_cane_%s.tscn" % str(lvl+1)).instantiate()
 
 func randomize_next_cane():
