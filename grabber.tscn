@@ -10,5 +10,5 @@ script = ExtResource("1_cmbh8")
 scale = Vector2(0.111117, 0.545242)
 texture = ExtResource("2_vw4vp")
 
-[node name="CaneSpawnPoint" type="Node2D" parent="."]
+[node name="CaneSpawnPoint" type="Sprite2D" parent="."]
 position = Vector2(0, 37)

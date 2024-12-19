@@ -1,19 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bowcur0pd4vpt"]
+[gd_scene load_steps=10 format=3 uid="uid://bowcur0pd4vpt"]
 
-[ext_resource type="Texture2D" uid="uid://c7v5h3cosic34" path="res://icon.svg" id="1_a0wko"]
 [ext_resource type="Script" path="res://game.gd" id="1_lvs5x"]
 [ext_resource type="PackedScene" uid="uid://fjpcac0dkq78" path="res://grabber.tscn" id="2_qmh5h"]
+[ext_resource type="PackedScene" uid="uid://bdc0ak2p4qt40" path="res://entities/container/container.tscn" id="2_wjfhj"]
 [ext_resource type="Shader" path="res://snow.gdshader" id="3_k2ui6"]
 [ext_resource type="Shader" path="res://pixelate.gdshader" id="4_fg52v"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8kdw"]
-size = Vector2(25, 516)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0d1w"]
-size = Vector2(23.5, 596.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v8uo"]
-size = Vector2(613, 47)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gnpfm"]
 frequency = 0.0045
@@ -40,41 +31,7 @@ script = ExtResource("1_lvs5x")
 
 [node name="Background" type="Node2D" parent="."]
 
-[node name="Container" type="Node2D" parent="."]
-
-[node name="LeftWall" type="StaticBody2D" parent="Container"]
-position = Vector2(292.5, 356)
-
-[node name="Icon" type="Sprite2D" parent="Container/LeftWall"]
-position = Vector2(0.5, 9.5)
-scale = Vector2(0.210938, 4.19531)
-texture = ExtResource("1_a0wko")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/LeftWall"]
-shape = SubResource("RectangleShape2D_v8kdw")
-
-[node name="Floor" type="StaticBody2D" parent="Container"]
-position = Vector2(594, 631)
-
-[node name="Icon" type="Sprite2D" parent="Container/Floor"]
-position = Vector2(0.5, 9.5)
-scale = Vector2(4.88602, 0.368885)
-texture = ExtResource("1_a0wko")
-
-[node name="Area2D2" type="StaticBody2D" parent="Container"]
-position = Vector2(866, 359)
-
-[node name="Icon" type="Sprite2D" parent="Container/RightWall"]
-position = Vector2(0.5, 9.5)
-scale = Vector2(0.210938, 4.19531)
-texture = ExtResource("1_a0wko")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/RightWall"]
-shape = SubResource("RectangleShape2D_v8kdw")
-
-[node name="Container_Floor#CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.5, 7.5)
-shape = SubResource("RectangleShape2D_7v8uo")
+[node name="Container" parent="." instance=ExtResource("2_wjfhj")]
 
 [node name="Grabber" parent="." instance=ExtResource("2_qmh5h")]
 

@@ -7,21 +7,21 @@ var cane_ready := false
 @onready
 var cane_parent = $CaneSpawnPoint
 
+var move_limits:Vector2
+
 func _ready() -> void:
-	spawn_cane()
-	
+	#spawn_cane()
+	pass
 
-func _input(event: InputEvent) -> void:
-	if InputMap.action_has_event("drop", event) and event.is_pressed() and cane_ready:
-		cane_ready = false
-		current_cane.fall()
+func set_extents(value:Vector2):
+	move_limits = value
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	self.position.x = calc_horizontal_pos()
 
 func calc_horizontal_pos() -> float:
-	return min(max(find_child("LeftWall").position.x, get_global_mouse_position().x), find_child("RightWall").position.x)
+	return clamp(get_global_mouse_position().x, move_limits.x, move_limits.y)
 
 func spawn_cane() -> void:
 	current_cane = candy_cane_base.instantiate() 

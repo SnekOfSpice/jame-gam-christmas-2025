@@ -3,6 +3,12 @@ extends RigidBody2D
 @export
 var lvl := 0
 
+var move_allowed := true
+var move_limits:Vector2
+
+func set_extents(value: Vector2) -> void:
+	move_limits = value
+
 func _ready() -> void:
 	GameManager.register(self)
 
@@ -11,10 +17,10 @@ func spawn() -> void:
 	self.freeze = true
 
 func fall() -> void:
-	reparent(get_tree().root.get_child(1))
 	self.freeze = false
 
-func _process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if move_allowed: self.position.x = clamp(get_global_mouse_position().x, move_limits.x, move_limits.y)
 	pass
 
 #func merge(partner: Node) -> void:
