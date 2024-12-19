@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bowcur0pd4vpt"]
+[gd_scene load_steps=12 format=3 uid="uid://bowcur0pd4vpt"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_lvs5x"]
 [ext_resource type="PackedScene" uid="uid://fjpcac0dkq78" path="res://grabber.tscn" id="2_qmh5h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://snow.gdshader" id="3_k2ui6"]
 [ext_resource type="Shader" path="res://pixelate.gdshader" id="4_fg52v"]
 [ext_resource type="PackedScene" uid="uid://deqbmqq5pg8e2" path="res://entities/nextCaneUI/next_cane_slot.tscn" id="6_4wmwr"]
+[ext_resource type="PackedScene" uid="uid://bckiocs4tet37" path="res://entities/deathZone/death_zone.tscn" id="7_psadt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gnpfm"]
 frequency = 0.0045
@@ -73,3 +74,17 @@ offset_left = 1024.0
 offset_top = 133.0
 offset_right = 1167.0
 offset_bottom = 271.0
+
+[node name="DeathZone" parent="." instance=ExtResource("7_psadt")]
+position = Vector2(202, 128)
+
+[node name="DeathZone2" parent="." instance=ExtResource("7_psadt")]
+position = Vector2(1006, 407)
+
+[node name="CollisionShape2D" parent="DeathZone2" index="0"]
+position = Vector2(-47, 64)
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="DeathZone2" to="." method="_on_death_zone_body_entered"]
+
+[editable path="DeathZone2"]

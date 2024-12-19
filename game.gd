@@ -83,3 +83,10 @@ func on_cane_landed(_body: Node) -> void:
 		current_cane.body_entered.disconnect(on_cane_landed)
 		call_deferred("spawn_cane")
 
+
+
+func _on_death_zone_body_entered(body):
+	if body.is_in_group("canes"):
+		print("GAMEOVER") 
+		GameManager.game_over()
+	pass
