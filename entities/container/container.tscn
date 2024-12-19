@@ -20,10 +20,10 @@ position = Vector2(549, 271)
 texture = ExtResource("1_omg64")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
-position = Vector2(292.5, 356)
+position = Vector2(335, 342)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(18.5, -31)
+position = Vector2(-27, 0)
 shape = SubResource("RectangleShape2D_v8kdw")
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -34,8 +34,8 @@ position = Vector2(-1, 7)
 shape = SubResource("RectangleShape2D_7v8uo")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(866, 359)
+position = Vector2(789, 326)
 
 [node name="Container_RightWall#CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(-51, -35.5)
+position = Vector2(23, 0)
 shape = SubResource("RectangleShape2D_n32mw")

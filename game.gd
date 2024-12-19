@@ -5,23 +5,35 @@ var candy_cane_base = preload("res://entities/candyCanes/candy_cane_0.tscn")
 var current_cane
 var cane_ready := false
 
+var just_started := true
+
+@onready
+var grabber := $Grabber
+@onready
+var container := $Container
+@onready
+var next_cane_slot := $NextCaneSlot
 
 func _ready() -> void:
 	set_background("bg1")
-	$Grabber.set_extents($Container.get_extents())
-	spawn_cane()
+	grabber.set_extents(container.get_extents())
 
 func _input(event: InputEvent) -> void:
-	if InputMap.action_has_event("drop", event) and event.is_pressed() and cane_ready:
-		cane_ready = false
-		current_cane.fall()
+	if InputMap.action_has_event("drop", event) and event.is_pressed():
+		if cane_ready:
+			cane_ready = false
+			current_cane.fall()
+		if just_started:
+			just_started = false
+			spawn_cane()
 
 func spawn_cane() -> void:
-	current_cane = candy_cane_base.instantiate()
-	current_cane.set_extents($Container.get_extents())
+	current_cane = next_cane_slot.get_next_cane()
+	current_cane.reparent(self)
+	current_cane.set_extents(container.get_extents())
 	current_cane.body_entered.connect(on_cane_landed)
 	current_cane.spawn()
-	add_child(current_cane)
+	next_cane_slot.randomize_next_cane()
 	cane_ready = true
 
 

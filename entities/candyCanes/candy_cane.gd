@@ -15,6 +15,8 @@ func _ready() -> void:
 func spawn() -> void:
 	self.rotation = rad_to_deg(randf_range(-75, 75))
 	self.freeze = true
+	move_allowed = true
+	self.position.y = 37
 
 func fall() -> void:
 	self.freeze = false

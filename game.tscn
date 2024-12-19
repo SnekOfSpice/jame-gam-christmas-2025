@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bowcur0pd4vpt"]
+[gd_scene load_steps=11 format=3 uid="uid://bowcur0pd4vpt"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_lvs5x"]
 [ext_resource type="PackedScene" uid="uid://fjpcac0dkq78" path="res://grabber.tscn" id="2_qmh5h"]
 [ext_resource type="PackedScene" uid="uid://bdc0ak2p4qt40" path="res://entities/container/container.tscn" id="2_wjfhj"]
 [ext_resource type="Shader" path="res://snow.gdshader" id="3_k2ui6"]
 [ext_resource type="Shader" path="res://pixelate.gdshader" id="4_fg52v"]
+[ext_resource type="PackedScene" uid="uid://deqbmqq5pg8e2" path="res://entities/nextCaneUI/next_cane_slot.tscn" id="6_4wmwr"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gnpfm"]
 frequency = 0.0045
@@ -32,6 +33,7 @@ script = ExtResource("1_lvs5x")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Container" parent="." instance=ExtResource("2_wjfhj")]
+position = Vector2(15, 58)
 
 [node name="Grabber" parent="." instance=ExtResource("2_qmh5h")]
 
@@ -65,3 +67,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="NextCaneSlot" parent="." instance=ExtResource("6_4wmwr")]
+offset_left = 1024.0
+offset_top = 133.0
+offset_right = 1167.0
+offset_bottom = 271.0

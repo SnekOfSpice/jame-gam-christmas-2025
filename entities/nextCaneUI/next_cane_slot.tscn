@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://deqbmqq5pg8e2"]
+
+[ext_resource type="Texture2D" uid="uid://dilisy0tx5i7d" path="res://sprites/UI/next_cane_border.png" id="1_c1hq2"]
+[ext_resource type="Script" path="res://entities/nextCaneUI/next_cane_slot.gd" id="1_sxsdh"]
+
+[node name="NextCaneSlot" type="NinePatchRect"]
+offset_right = 140.0
+offset_bottom = 140.0
+texture = ExtResource("1_c1hq2")
+region_rect = Rect2(0, 0, 512, 512)
+patch_margin_left = 35
+patch_margin_top = 35
+patch_margin_right = 35
+patch_margin_bottom = 35
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+script = ExtResource("1_sxsdh")
+
+[node name="CaneParent" type="Node2D" parent="."]
+position = Vector2(73, 73)
