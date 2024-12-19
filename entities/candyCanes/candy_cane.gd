@@ -18,6 +18,7 @@ func spawn() -> void:
 
 func fall() -> void:
 	self.freeze = false
+	move_allowed = false
 
 func _physics_process(delta: float) -> void:
 	if move_allowed: self.position.x = clamp(get_global_mouse_position().x, move_limits.x, move_limits.y)

@@ -4,6 +4,8 @@ extends Node2D
 var candy_cane_base = preload("res://entities/candyCanes/candy_cane_0.tscn")
 var current_cane
 var cane_ready := false
+
+
 func _ready() -> void:
 	set_background("bg1")
 	$Grabber.set_extents($Container.get_extents())
@@ -18,10 +20,10 @@ func spawn_cane() -> void:
 	current_cane = candy_cane_base.instantiate()
 	current_cane.set_extents($Container.get_extents())
 	current_cane.body_entered.connect(on_cane_landed)
-	add_child(current_cane)
 	current_cane.spawn()
+	add_child(current_cane)
 	cane_ready = true
-	pass
+
 
 func set_background(background:String, fade_time := 0.0):
 	var path = str("res://backgrounds/", background, ".png")
@@ -68,3 +70,4 @@ func on_cane_landed(_body: Node) -> void:
 	if !cane_ready:
 		current_cane.body_entered.disconnect(on_cane_landed)
 		call_deferred("spawn_cane")
+

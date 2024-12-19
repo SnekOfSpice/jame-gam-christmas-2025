@@ -3,6 +3,9 @@ extends Node
 var active_listeners = []
 var active_collisions = []
 
+@onready
+var game_node = get_tree().root.get_node("/root/Game")
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -45,5 +48,6 @@ func merge(spawn_pos: Vector2, lvl: int) -> void:
 	if lvl >= 4 : lvl = -1
 	var next_cane = load("res://entities/candyCanes/candy_cane_%s.tscn" % str(lvl+1)).instantiate()
 	#var next_cane = next_levels[lvl].instantiate()
-	get_tree().root.get_child(1).add_child(next_cane)
 	next_cane.global_position = spawn_pos
+	next_cane.move_allowed = false
+	game_node.add_child(next_cane)
