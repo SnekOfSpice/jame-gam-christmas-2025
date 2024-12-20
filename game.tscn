@@ -105,10 +105,12 @@ position = Vector2(-47, 64)
 [node name="LauchPower" type="TextureProgressBar" parent="."]
 offset_left = 168.0
 offset_top = 27.0
-offset_right = 232.0
+offset_right = 514.0
 offset_bottom = 91.0
-max_value = 1000.0
-value = 100.0
+rotation = 1.5708
+size_flags_horizontal = 3
+max_value = 3000.0
+nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture2D_2eqgn")
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

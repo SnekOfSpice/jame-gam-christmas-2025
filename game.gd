@@ -26,32 +26,28 @@ func _ready() -> void:
 	GameManager.game = self
 	set_background("bg1")
 	grabber.set_extents(container.get_extents())
+	spawn_cane()
 
 func _input(event: InputEvent) -> void:
 	if InputMap.action_has_event("drop", event):
 		if event.is_pressed():
 			if cane_ready:
-				force = 0.0
-				building_up_force = true
-			if just_started:
-				just_started = false
-				spawn_cane()
-		if event.is_released():
-			if cane_ready:
 				launch_cane()
+
+func _process(delta: float) -> void:
+	print(get_force())
+	$LauchPower.value = get_force()
+
+func get_force():
+	var mult = clamp(abs(find_child("Grabber").get_local_mouse_position().y) / 160, 1, 5)
+	return clamp(abs(find_child("Grabber").get_local_mouse_position().y), 5, 5000) * mult
 
 func launch_cane():
 	building_up_force = false
 	cane_ready = false
 	combo = 1
-	print(force)
-	current_cane.fall(force)
+	current_cane.fall(get_force())
 	$LauchPower.value = 0.0
-
-func _process(delta):
-	if building_up_force:
-		force = clamp(force + 500 * delta, 0, 1000)
-		$LauchPower.value = force
 
 func spawn_cane() -> void:
 	current_cane = next_cane_slot.get_next_cane()
