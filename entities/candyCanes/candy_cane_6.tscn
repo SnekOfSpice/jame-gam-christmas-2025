@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dugl8t0yk23fw" path="res://entities/candyCanes/cane6.png" id="2_oq4p7"]
 
 [node name="RigidBody2D" instance=ExtResource("1_s7kuy")]
+lvl = 6
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_oq4p7")
