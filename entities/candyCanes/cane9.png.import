@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv75o6oy77jwb"
-path="res://.godot/imported/cane7.png-4d24e89c1a262388addac69df48e0a06.ctex"
+uid="uid://cew3vkfw7y6ay"
+path="res://.godot/imported/cane9.png-94fb040c04f185494e36f5342c974c58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cane7.png"
-dest_files=["res://.godot/imported/cane7.png-4d24e89c1a262388addac69df48e0a06.ctex"]
+source_file="res://entities/candyCanes/cane9.png"
+dest_files=["res://.godot/imported/cane9.png-94fb040c04f185494e36f5342c974c58.ctex"]
 
 [params]
 

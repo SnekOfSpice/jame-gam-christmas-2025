@@ -7,7 +7,16 @@ func _ready():
 	#var next_cane = load("res://entities/candyCanes/candy_cane_%s.tscn" % str(lvl+1)).instantiate()
 
 func randomize_next_cane():
-	var lvl = randi_range(0, 1)
+	var lvl:int
+	var r = randf()
+	if r <= 0.5:
+		lvl = 0
+	elif r <= 0.75:
+		lvl = 1
+	elif r <= 0.9:
+		lvl = 2
+	else:
+		lvl = 3
 	next_cane = load("res://entities/candyCanes/candy_cane_%s.tscn" % str(lvl)).instantiate()
 	next_cane.freeze = true
 	$CaneParent.add_child(next_cane)

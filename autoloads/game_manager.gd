@@ -64,7 +64,7 @@ func register_collision(cane_a, cane_b) -> void:
 	call_deferred("check_merge", [cane_a, cane_b])
 
 func merge(spawn_pos: Vector2, lvl: int, initial_rotation: float) -> void:
-	if lvl >= 4 : lvl = -1
+	if lvl >= 10 : lvl = -1
 	var next_cane = load("res://entities/candyCanes/candy_cane_%s.tscn" % str(lvl+1)).instantiate()
 	#var next_cane = next_levels[lvl].instantiate()
 	next_cane.global_position = spawn_pos

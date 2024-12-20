@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0yhjru7p0m8u"]
 
 [ext_resource type="PackedScene" uid="uid://ch05h2bigog3q" path="res://entities/candyCanes/candy_cane_0.tscn" id="1_skveg"]
-[ext_resource type="Texture2D" uid="uid://2d5ltg30bbfn" path="res://sprites/cane1.png" id="2_k03hn"]
+[ext_resource type="Texture2D" uid="uid://2d5ltg30bbfn" path="res://entities/candyCanes/cane1.png" id="2_k03hn"]
 
 [node name="CandyCane_01" instance=ExtResource("1_skveg")]
 lvl = 1

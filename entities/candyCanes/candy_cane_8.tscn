@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy6yfmvcxhtx2"]
+
+[ext_resource type="PackedScene" uid="uid://ch05h2bigog3q" path="res://entities/candyCanes/candy_cane_0.tscn" id="1_3rjnk"]
+[ext_resource type="Texture2D" uid="uid://dowoasc5qbryr" path="res://entities/candyCanes/cane8.png" id="2_luat8"]
+
+[node name="RigidBody2D" instance=ExtResource("1_3rjnk")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_luat8")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(143, -51, 137, -60, 124, -64, -91, -62, -114, -50, -129, -40, -142, -18, -144, 3, -139, 23, -130, 42, -116, 55, -97, 61, -74, 63, -60, 63, -54, 57, -52, 49, -54, 42, -58, 35, -73, 34, -93, 32, -102, 22, -105, -2, -97, -23, -85, -31, 139, -34, 143, -43)
