@@ -3,8 +3,7 @@ extends Node
 var active_listeners = []
 var active_collisions = []
 
-@onready
-var game_node = get_tree().root.get_node("/root/Game")
+var game:Game
 
 func register(cane: RigidBody2D) -> void:
 	maintain_active_listeners(cane)
@@ -64,13 +63,15 @@ func register_collision(cane_a, cane_b) -> void:
 	call_deferred("check_merge", [cane_a, cane_b])
 
 func merge(spawn_pos: Vector2, lvl: int, initial_rotation: float) -> void:
-	if lvl >= 10 : lvl = -1
+	if lvl >= 10:
+		game.win()
+		return
 	var next_cane = load("res://entities/candyCanes/candy_cane_%s.tscn" % str(lvl+1)).instantiate()
 	#var next_cane = next_levels[lvl].instantiate()
 	next_cane.global_position = spawn_pos
 	next_cane.move_allowed = false
 	next_cane.rotation = initial_rotation
-	game_node.add_child(next_cane)
+	game.add_child(next_cane)
 
 func game_over():
 	for cane in active_listeners:

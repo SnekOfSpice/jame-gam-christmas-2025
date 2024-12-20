@@ -1,4 +1,5 @@
 extends Node2D
+class_name Game
 
 @onready
 var candy_cane_base = preload("res://entities/candyCanes/candy_cane_0.tscn")
@@ -18,6 +19,7 @@ var force := 0.0
 var building_up_force := false
 
 func _ready() -> void:
+	GameManager.game = self
 	set_background("bg1")
 	grabber.set_extents(container.get_extents())
 
@@ -77,8 +79,6 @@ func set_background(background:String, fade_time := 0.0):
 	$Background.add_child(new_background)
 	$Background.move_child(new_background, 0)
 	
-	var viewport_height = ProjectSettings.get_setting("display/window/size/viewport_height")
-	var viewport_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 	var background_size := Vector2.ZERO
 	if new_background is Sprite2D:
 		background_size = new_background.texture.get_size()
@@ -102,7 +102,8 @@ func on_cane_landed(_body: Node) -> void:
 		current_cane.body_entered.disconnect(on_cane_landed)
 		call_deferred("spawn_cane")
 
-
+func win():
+	print("you win")
 
 func _on_death_zone_body_entered(body):
 	if body.is_in_group("canes"):
