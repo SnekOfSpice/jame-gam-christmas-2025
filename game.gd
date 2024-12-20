@@ -14,9 +14,13 @@ var grabber := $Grabber
 var container := $Container
 @onready
 var next_cane_slot := $NextCaneSlot
+@onready
+var score_display := $ScoreDisplayBorder
 
 var force := 0.0
 var building_up_force := false
+
+var combo := 1
 
 func _ready() -> void:
 	GameManager.game = self
@@ -27,6 +31,7 @@ func _input(event: InputEvent) -> void:
 	if InputMap.action_has_event("drop", event):
 		if event.is_pressed():
 			if cane_ready:
+				force = 0.0
 				building_up_force = true
 			if just_started:
 				just_started = false
@@ -38,10 +43,10 @@ func _input(event: InputEvent) -> void:
 func launch_cane():
 	building_up_force = false
 	cane_ready = false
+	combo = 1
 	print(force)
 	current_cane.fall(force)
 	$LauchPower.value = 0.0
-	force = 0.0
 
 func _process(delta):
 	if building_up_force:
@@ -101,6 +106,11 @@ func on_cane_landed(_body: Node) -> void:
 	if !cane_ready:
 		current_cane.body_entered.disconnect(on_cane_landed)
 		call_deferred("spawn_cane")
+
+func calculate_score(achieved_level : int) -> void:
+	var score = achieved_level * combo * 100 + force/10
+	combo += 1
+	score_display.set_score(score)
 
 func win():
 	print("you win")

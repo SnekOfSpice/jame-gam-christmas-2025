@@ -47,18 +47,20 @@ func unlisten(exiting_body: Node) -> void:
 	pass
 
 func check_merge(new_collision: Array) -> void:
-	if active_collisions.any(func(collision): return active_collisions.has([new_collision[1], new_collision[0]])):
+	if active_collisions.any(func(collision): return active_collisions.has([new_collision[1], new_collision[0]]) and new_collision[0].fusing == false or new_collision[1].fusing == false):
+		new_collision[0].fusing = true
+		new_collision[1].fusing = true
 		var spawn_pos = new_collision[0].global_position
 		var level = new_collision[0].lvl
 		var rotation = new_collision[0].rotation
-		clean_active_listeners(new_collision)
+		new_collision[0].despawn()
+		new_collision[1].despawn()
 		merge(spawn_pos, level, rotation)
-		active_collisions.erase([new_collision[1], new_collision[0]])
-		active_collisions.erase(new_collision)
-		#clean_active_listeners()
+		game.calculate_score(level+1)
+	active_collisions.erase(new_collision)
 	pass
 
-func register_collision(cane_a, cane_b) -> void:
+func register_collision(cane_a: RigidBody2D, cane_b: RigidBody2D) -> void:
 	active_collisions.append([cane_a, cane_b])
 	call_deferred("check_merge", [cane_a, cane_b])
 
@@ -76,9 +78,3 @@ func merge(spawn_pos: Vector2, lvl: int, initial_rotation: float) -> void:
 func game_over():
 	for cane in active_listeners:
 		cane.queue_free()
-
-func clean_active_listeners(fused_canes: Array) -> void:
-	active_listeners.erase(fused_canes[0])
-	active_listeners.erase(fused_canes[1])
-	fused_canes[0].queue_free()
-	fused_canes[1].queue_free()

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs48ow1x7wcd7"]
+
+[ext_resource type="Texture2D" uid="uid://dilisy0tx5i7d" path="res://sprites/UI/next_cane_border.png" id="1_65vfj"]
+[ext_resource type="Theme" uid="uid://b2q0o08wdimhw" path="res://entities/scoreDisplay/text.tres" id="2_6gj5r"]
+[ext_resource type="Script" path="res://entities/scoreDisplay/score_display.gd" id="2_n21e8"]
+
+[node name="ScoreDisplayBorder" type="NinePatchRect"]
+offset_right = 501.0
+offset_bottom = 140.0
+texture = ExtResource("1_65vfj")
+region_rect = Rect2(0, 0, 512, 512)
+patch_margin_left = 35
+patch_margin_top = 35
+patch_margin_right = 35
+patch_margin_bottom = 35
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+script = ExtResource("2_n21e8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 31.0
+offset_right = 487.0
+offset_bottom = 118.0
+theme = ExtResource("2_6gj5r")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 86
+bbcode_enabled = true
+text = "1234567890"
+fit_content = true
+scroll_active = false

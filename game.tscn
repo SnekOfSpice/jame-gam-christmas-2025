@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bowcur0pd4vpt"]
+[gd_scene load_steps=15 format=3 uid="uid://bowcur0pd4vpt"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_lvs5x"]
 [ext_resource type="PackedScene" uid="uid://fjpcac0dkq78" path="res://grabber.tscn" id="2_qmh5h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://snow.gdshader" id="3_k2ui6"]
 [ext_resource type="Shader" path="res://pixelate.gdshader" id="4_fg52v"]
 [ext_resource type="PackedScene" uid="uid://deqbmqq5pg8e2" path="res://entities/nextCaneUI/next_cane_slot.tscn" id="6_4wmwr"]
+[ext_resource type="PackedScene" uid="uid://bs48ow1x7wcd7" path="res://entities/scoreDisplay/score_display.tscn" id="7_njsvm"]
 [ext_resource type="PackedScene" uid="uid://bckiocs4tet37" path="res://entities/deathZone/death_zone.tscn" id="7_psadt"]
 [ext_resource type="Gradient" uid="uid://cv6o8jq7w8jhe" path="res://launch_bar_fill.tres" id="8_xj172"]
 
@@ -74,10 +75,23 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NextCaneSlot" parent="." instance=ExtResource("6_4wmwr")]
-offset_left = 1024.0
-offset_top = 133.0
-offset_right = 1167.0
-offset_bottom = 271.0
+offset_left = 875.0
+offset_top = 140.0
+offset_right = 1018.0
+offset_bottom = 278.0
+
+[node name="ScoreDisplayBorder" parent="." instance=ExtResource("7_njsvm")]
+custom_minimum_size = Vector2(300, 130)
+offset_left = 875.0
+offset_top = 283.0
+offset_right = 1175.0
+offset_bottom = 413.0
+
+[node name="RichTextLabel" parent="ScoreDisplayBorder" index="0"]
+offset_right = 275.0
+offset_bottom = 107.0
+theme_override_font_sizes/normal_font_size = 75
+text = "123456"
 
 [node name="DeathZone" parent="." instance=ExtResource("7_psadt")]
 position = Vector2(180, 556)
@@ -100,4 +114,5 @@ texture_progress = SubResource("GradientTexture2D_2eqgn")
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
 [connection signal="body_entered" from="DeathZone2" to="." method="_on_death_zone_body_entered"]
 
+[editable path="ScoreDisplayBorder"]
 [editable path="DeathZone2"]
